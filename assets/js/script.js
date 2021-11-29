@@ -1,16 +1,7 @@
-// Prompt: Ask for length of password between 8 and 128 characters
-// Ask for character types: 
-//  - lowercase
-//  - uppercase
-//  - numeric
-//  - special characters
-// When prompt answered, input validated and at least 1 character type selected
-// When all prompts are answered, password generated and displayed in alert or written on the page
-
 var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numbers = '1234567890';
-var special = '!@#$%^&*()/";:<>+=_-{}[]|';
+var special = '!@#$%^&*()/";:<>+=_-{}[]|\\~`';
 var password = '';
 var passChars = '';
 
@@ -40,18 +31,28 @@ function generatePassword() {
             passChars += special;
         }
 
+        else if (
+            promptUpper === false &&
+            promptLower === false &&
+            promptNumber === false &&
+            promptSpecial === false
+        ) {
+            alert('You must choose at least one option.')
+            return generatePassword();
+        }
+        
+
         for(var i=0 ; i < passwordLength ; i++) {
             password += passChars[Math.floor(Math.random() * passChars.length)];
         }
 
-    console.log(password);
     return password;
 
     }
 
     else {
         window.alert('You must enter a number between 8 and 128.');
-        generatePassword();
+        return generatePassword();
     }
     
 }

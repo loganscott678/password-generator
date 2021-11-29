@@ -3,7 +3,7 @@
 ### This app generates a password based on user input 
 
 Screenshot: 
-![password-generator] (/assets/images/password-generator.png)
+![webpage-example](/Develop/assets/images/password-generator.png)
 
 The password generator can be accessed here: 
 [site](https://loganscott678.github.io/password-generator/)
